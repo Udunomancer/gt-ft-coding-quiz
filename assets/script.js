@@ -185,6 +185,11 @@ function populateScoreScreen() {
 
 function submitHighScore() {
     clearQuizPane();
+    
+    var heading = document.createElement("h1");
+    heading.textContent = "Highscores";
+    quizPane.appendChild(heading);
+
     console.log("Yayyy!");
 }
 
