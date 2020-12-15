@@ -105,13 +105,13 @@ function btnClick() {
         case "initial-btn":
             submitHighScore();
             break;
-        case "go-back-btn":
-            clearQuizPane();
-            init();
-            break;
-        case "clear-btn":
-            console.log("Clear Highscores");
-            break;
+        // case "go-back-btn":
+        //     clearQuizPane();
+        //     init();
+        //     break;
+        // case "clear-btn":
+        //     console.log("Clear Highscores");
+        //     break;
     }
   }
 }
@@ -161,7 +161,7 @@ function startTimer() {
   //Output: none
     quizTime = 80;
     document.getElementById("timer").textContent = "Time Remaining: " + quizTime;
-    
+
     gameTimer = setInterval(function() {
         quizTime--;
         document.getElementById("timer").textContent = "Time Remaining: " + quizTime;
@@ -243,6 +243,7 @@ function populateScoreScreen() {
 
   var initialsInput = document.createElement("input");
   initialsInput.setAttribute("type", "text");
+  initialsInput.setAttribute("id", "initials");
   initialsSpan.appendChild(initialsInput);
 
   var initialsBtn = document.createElement("button");
@@ -253,26 +254,34 @@ function populateScoreScreen() {
 }
 
 function submitHighScore() {
-    clearQuizPane();
+  //Function to save initials and high-score and bring to the high-score page when Submit button is clicked
+  //Input: none
+  //Output: none
+  var submittedScore = {initials: document.querySelector("#initials").value, score: quizTime};
+  console.log(submittedScore);
+  // var score = {document.querySelector("#initials").value, }
 
-    var heading = document.createElement("h1");
-    heading.textContent = "Highscores";
-    quizPane.appendChild(heading);
+  
+  // clearQuizPane();
 
-    var span = document.createElement("span");
-    quizPane.appendChild(span);
+    // var heading = document.createElement("h1");
+    // heading.textContent = "Highscores";
+    // quizPane.appendChild(heading);
 
-    var goBackBtn = document.createElement("button");
-    goBackBtn.textContent = "Go Back";
-    goBackBtn.setAttribute("id", "go-back-btn");
-    span.appendChild(goBackBtn);
+    // var span = document.createElement("span");
+    // quizPane.appendChild(span);
 
-    var clearBtn = document.createElement("button");
-    clearBtn.textContent = "Clear Highscores";
-    clearBtn.setAttribute("id", "clear-btn");
-    span.appendChild(clearBtn);
+    // var goBackBtn = document.createElement("button");
+    // goBackBtn.textContent = "Go Back";
+    // goBackBtn.setAttribute("id", "go-back-btn");
+    // span.appendChild(goBackBtn);
 
-    console.log("Yayyy!");
+    // var clearBtn = document.createElement("button");
+    // clearBtn.textContent = "Clear Highscores";
+    // clearBtn.setAttribute("id", "clear-btn");
+    // span.appendChild(clearBtn);
+
+    // console.log("Yayyy!");
 }
 
 init();
