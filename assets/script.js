@@ -135,8 +135,9 @@ function populateQuestion(next) {
   for (var i = 0; i < questionPanel[questionNum].responses.length; i++) {
         
     var responseBtn = document.createElement("button");
-    responseBtn.setAttribute("id", i);
     responseBtn.textContent = (i + 1) + ". " + questionPanel[questionNum].responses[i].response;
+    responseBtn.setAttribute("id", i);
+    responseBtn.setAttribute("class", "btn btn-primary m-1");
     quizPane.appendChild(responseBtn);
 
     //Break to put each response button on a separate line
@@ -145,12 +146,13 @@ function populateQuestion(next) {
 
   //Show result of previous response (if applicable)
   if(next) {
-    var previousAnswer = document.createElement("h1");
+    var previousAnswer = document.createElement("h3");
     if (questionPanel[questionNum - 1].answer) {
       previousAnswer.textContent = "Correct!";
     } else {
       previousAnswer.textContent = "Wrong!";
     }
+    previousAnswer.setAttribute("class", "border-top mt-3");
     quizPane.appendChild(previousAnswer);
   }
 }
