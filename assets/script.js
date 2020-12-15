@@ -1,5 +1,8 @@
+// ===DOM VARIABLES===
 var quizPane = document.getElementById("quiz-pane");
 
+// ===JAVASCRIPT VARIABLES===
+// Variable to store all questions/responses/answers.  ARRAY of OBJECTS
 var questionPanel = [
   {
     question: "Commonly used data types DO NOT include:",
@@ -43,11 +46,17 @@ var questionPanel = [
     ], answer: ""
   }
 ];
+// Variable to store current question #
 var questionNum = 0;
+// Variable to store quiz time
 var quizTime = 0;
+// Variable to store scores
 var scores = [];
 
 function init() {
+  //Function to initialize page on load.  Creates and adds page content.
+  //Input: None
+  //Output: None
   var heading = document.createElement("h1");
   var text = document.createElement("p");
   var startButton = document.createElement("button");
@@ -64,6 +73,9 @@ function init() {
 }
 
 function btnClick() {
+  //Router function for button clicks.  Identifies clicked button id and routes accordingly.
+  //Input: none
+  //Output: none
   if (event.target.matches("button")) {
     switch (event.target.id) {
         case "start-btn":
@@ -98,10 +110,16 @@ function btnClick() {
 }
 
 function clearQuizPane() {
-    quizPane.textContent = "";
+  //Function to clear quiz pane for new content
+  //Input: none
+  //Output: none
+  quizPane.textContent = "";
 }
 
 function populateQuestion(next) {
+  //Function to populate quiz pane with question elements
+  //Input: (boolean) False if initiated from start button, True if initiated from a question response
+  //Output: none
     
     var heading = document.createElement("h2");
     heading.textContent = questionPanel[questionNum].question;
@@ -129,6 +147,9 @@ function populateQuestion(next) {
 }
 
 function startTimer() {
+  //Function to set the quiz timer and begin countdown
+  //Input: none
+  //Output: none
     quizTime = 10;
     var timerInterval = setInterval(function() {
         quizTime--;
@@ -142,6 +163,9 @@ function startTimer() {
 }
 
 function responseButton(selection) {
+  //Function run when a question response is selected
+  //Input: (string) ID of the selected answer
+  //Output: none
     evaluateAnswer(selection);
     questionNum++;
     clearQuizPane();
@@ -153,6 +177,9 @@ function responseButton(selection) {
 }
 
 function evaluateAnswer(selection) {
+  //Function to determine if selected answer is correct. Sets value of question answer key to true if match, and false if no match
+  //Input: (string) ID of the selected answer
+  //Output: none
     if (questionPanel[questionNum].responses[selection].status) {
         questionPanel[questionNum].answer = true;
     } else {
@@ -161,6 +188,10 @@ function evaluateAnswer(selection) {
 }
 
 function populateScoreScreen() {
+  //Function to populate scorescreen
+  //Input: none
+  //Output: none
+  //window.location.href='http://www.google.com/
     var heading = document.createElement("h2");
     heading.textContent = "All done!";
     quizPane.appendChild(heading);
