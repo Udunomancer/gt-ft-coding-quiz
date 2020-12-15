@@ -123,7 +123,7 @@ function clearQuizPane() {
   quizPane.textContent = "";
 }
 
-function populateQuestion(next) {
+function populateQuestion(previousAns) {
   //Function to populate quiz pane with question elements
   //Input: (boolean) False if initiated from start button, True if initiated from a question response
   //Output: none
@@ -147,13 +147,9 @@ function populateQuestion(next) {
   }
 
   //Show result of previous response (if applicable)
-  if(next) {
+  if(previousAns) {
     var previousAnswer = document.createElement("h4");
-    if (questionPanel[questionNum - 1].answer) {
-      previousAnswer.textContent = "Correct!";
-    } else {
-      previousAnswer.textContent = "Wrong!";
-    }
+    previousAnswer.textContent = previousAns;
     previousAnswer.setAttribute("class", "text-muted border-top mt-3");
     quizPane.appendChild(previousAnswer);
   }
@@ -163,12 +159,14 @@ function startTimer() {
   //Function to set the quiz timer and begin countdown
   //Input: none
   //Output: none
-    quizTime = 10;
+    quizTime = 80;
+    document.getElementById("timer").textContent = "Time Remaining: " + quizTime;
+    
     gameTimer = setInterval(function() {
         quizTime--;
         document.getElementById("timer").textContent = "Time Remaining: " + quizTime;
 
-        if (quizTime === 0) {
+        if (quizTime <= 0) {
           endGame();
         }
     }, 1000);
@@ -178,11 +176,11 @@ function responseButton(selection) {
   //Function run when a question response is selected
   //Input: (string) ID of the selected answer
   //Output: none
-    evaluateAnswer(selection);
+    var accuracy = evaluateAnswer(selection);
     questionNum++;
     clearQuizPane();
     if (questionNum < questionPanel.length) {
-        populateQuestion(true);
+        populateQuestion(accuracy);
     } else {
         endGame();
     }
@@ -194,8 +192,15 @@ function evaluateAnswer(selection) {
   //Output: none
     if (questionPanel[questionNum].responses[selection].status) {
         questionPanel[questionNum].answer = true;
+        return "Correct!";
     } else {
         questionPanel[questionNum].answer = false;
+        if (quizTime - 10 > 0) {
+          quizTime = quizTime - 10;
+        } else {
+          quizTime = 0;
+        }
+        return "Wrong!";
     }
 }
 
