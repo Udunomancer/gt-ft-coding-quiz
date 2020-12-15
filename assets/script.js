@@ -257,8 +257,20 @@ function submitHighScore() {
   //Function to save initials and high-score and bring to the high-score page when Submit button is clicked
   //Input: none
   //Output: none
+  var storedScores = JSON.parse(localStorage.getItem("storedScoresLS"));
   var submittedScore = {initials: document.querySelector("#initials").value, score: quizTime};
-  console.log(submittedScore);
+
+  console.log(storedScores);
+
+  if (storedScores === null) {
+    storedScores = [submittedScore];
+  } else {
+    storedScores.push(submittedScore);
+  }
+  console.log(storedScores)
+  localStorage.setItem("storedScoresLS", JSON.stringify(storedScores));
+  
+ 
   // var score = {document.querySelector("#initials").value, }
 
   
