@@ -260,14 +260,12 @@ function submitHighScore() {
   var storedScores = JSON.parse(localStorage.getItem("storedScoresLS"));
   var submittedScore = {initials: document.querySelector("#initials").value, score: quizTime};
 
-  console.log(storedScores);
-
   if (storedScores === null) {
     storedScores = [submittedScore];
   } else {
     storedScores.push(submittedScore);
   }
-  console.log(storedScores)
+  
   localStorage.setItem("storedScoresLS", JSON.stringify(storedScores));
   
  
