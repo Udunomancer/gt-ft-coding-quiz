@@ -126,29 +126,33 @@ function populateQuestion(next) {
   //Input: (boolean) False if initiated from start button, True if initiated from a question response
   //Output: none
     
-    var heading = document.createElement("h2");
-    heading.textContent = questionPanel[questionNum].question;
-    quizPane.appendChild(heading);
+  //Create, add content, and add header to quiz-pane
+  var heading = document.createElement("h2");
+  heading.textContent = questionPanel[questionNum].question;
+  quizPane.appendChild(heading);
 
-    for (var i = 0; i < questionPanel[questionNum].responses.length; i++) {
+  //For loop to create, add content, and add question response buttons to quiz-pane
+  for (var i = 0; i < questionPanel[questionNum].responses.length; i++) {
         
-        var responseBtn = document.createElement("button");
-        responseBtn.setAttribute("id", i);
-        responseBtn.textContent = (i + 1) + ". " + questionPanel[questionNum].responses[i].response;
-        quizPane.appendChild(responseBtn);
+    var responseBtn = document.createElement("button");
+    responseBtn.setAttribute("id", i);
+    responseBtn.textContent = (i + 1) + ". " + questionPanel[questionNum].responses[i].response;
+    quizPane.appendChild(responseBtn);
 
-        quizPane.appendChild(document.createElement("br"));
-    }
+    //Break to put each response button on a separate line
+    quizPane.appendChild(document.createElement("br"));
+  }
 
-    if(next) {
-        var previousAnswer = document.createElement("h1");
-        if (questionPanel[questionNum - 1].answer) {
-            previousAnswer.textContent = "Correct!";
-        } else {
-            previousAnswer.textContent = "Wrong!";
-        }
-        quizPane.appendChild(previousAnswer);
+  //Show result of previous response (if applicable)
+  if(next) {
+    var previousAnswer = document.createElement("h1");
+    if (questionPanel[questionNum - 1].answer) {
+      previousAnswer.textContent = "Correct!";
+    } else {
+      previousAnswer.textContent = "Wrong!";
     }
+    quizPane.appendChild(previousAnswer);
+  }
 }
 
 function startTimer() {
