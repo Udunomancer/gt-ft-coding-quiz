@@ -185,10 +185,23 @@ function populateScoreScreen() {
 
 function submitHighScore() {
     clearQuizPane();
-    
+
     var heading = document.createElement("h1");
     heading.textContent = "Highscores";
     quizPane.appendChild(heading);
+
+    var span = document.createElement("span");
+    quizPane.appendChild(span);
+
+    var goBackBtn = document.createElement("button");
+    goBackBtn.textContent = "Go Back";
+    goBackBtn.setAttribute("id", "go-back-button");
+    span.appendChild(goBackBtn);
+
+    var clearBtn = document.createElement("button");
+    clearBtn.textContent = "Clear Highscores";
+    clearBtn.setAttribute("id", "clear-btn");
+    span.appendChild(clearBtn);
 
     console.log("Yayyy!");
 }
