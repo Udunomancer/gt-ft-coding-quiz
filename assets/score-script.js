@@ -1,0 +1,1 @@
+var scorePane = document.getElementById("score-pane");
