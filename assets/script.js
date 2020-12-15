@@ -87,7 +87,8 @@ function btnClick() {
             submitHighScore();
             break;
         case "go-back-btn":
-            console.log("Go Back");
+            clearQuizPane();
+            init();
             break;
         case "clear-btn":
             console.log("Clear Highscores");
