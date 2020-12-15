@@ -162,13 +162,12 @@ function startTimer() {
   //Input: none
   //Output: none
     quizTime = 10;
-    var timerInterval = setInterval(function() {
+    var gameTimer = setInterval(function() {
         quizTime--;
         document.getElementById("timer").textContent = "Time Remaining: " + quizTime;
 
         if (quizTime === 0) {
-          clearInterval(timerInterval);
-          console.log("Game Over");
+          endGame(gameTimer);
         }
     }, 1000);
 }
@@ -196,6 +195,11 @@ function evaluateAnswer(selection) {
     } else {
         questionPanel[questionNum].answer = false;
     }
+}
+
+function endGame(timer) {
+  clearInterval(timer);
+  console.log("Game Over");
 }
 
 function populateScoreScreen() {
