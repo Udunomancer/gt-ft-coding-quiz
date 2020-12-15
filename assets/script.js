@@ -214,7 +214,7 @@ function populateScoreScreen() {
   //Function to populate scorescreen
   //Input: none
   //Output: none
-  //window.location.href='http://www.google.com/
+  
     
   //Create, add content, and add header to quiz-pane
   var heading = document.createElement("h2");
@@ -267,6 +267,8 @@ function submitHighScore() {
   }
   
   localStorage.setItem("storedScoresLS", JSON.stringify(storedScores));
+
+  window.location.href="score.html";
   
  
   // var score = {document.querySelector("#initials").value, }
