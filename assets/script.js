@@ -199,6 +199,8 @@ function evaluateAnswer(selection) {
 
 function endGame(timer) {
   clearInterval(timer);
+  clearQuizPane();
+  populateScoreScreen();
   console.log("Game Over");
 }
 
