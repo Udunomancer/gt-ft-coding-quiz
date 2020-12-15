@@ -121,10 +121,15 @@ function populateQuestion(next) {
 }
 
 function startTimer() {
-    quizTime = 80;
+    quizTime = 10;
     var timerInterval = setInterval(function() {
         quizTime--;
         document.getElementById("timer").textContent = "Time Remaining: " + quizTime;
+
+        if (quizTime === 0) {
+          clearInterval(timerInterval);
+          console.log("Game Over");
+        }
     }, 1000);
 }
 
