@@ -57,18 +57,23 @@ function init() {
   //Function to initialize page on load.  Creates and adds page content.
   //Input: None
   //Output: None
-  var heading = document.createElement("h1");
-  var text = document.createElement("p");
-  var startButton = document.createElement("button");
 
+  //Create, add content, and add header to quiz-pane
+  var heading = document.createElement("h1");
   heading.textContent = "Coding Quiz Challenge";
+  heading.setAttribute("class", "text-center");
+  quizPane.appendChild(heading);
+
+  //Create, add content, and add text to quiz-pane
+  var text = document.createElement("p");
   text.textContent =
     "Try to answer the following code related questions within the time limit.  Keep in mind that incorrect answers will penalize your score/time by ten seconds!";
-  startButton.textContent = "Start Quiz";
-  startButton.setAttribute("id", "start-btn");
-
-  quizPane.appendChild(heading);
   quizPane.appendChild(text);
+
+  //Create, add content, and add start button to quiz-pane
+  var startButton = document.createElement("button");  
+  startButton.textContent = "Start Quiz";
+  startButton.setAttribute("id", "start-btn");  
   quizPane.appendChild(startButton);
 }
 
