@@ -146,13 +146,13 @@ function populateQuestion(next) {
 
   //Show result of previous response (if applicable)
   if(next) {
-    var previousAnswer = document.createElement("h3");
+    var previousAnswer = document.createElement("h4");
     if (questionPanel[questionNum - 1].answer) {
       previousAnswer.textContent = "Correct!";
     } else {
       previousAnswer.textContent = "Wrong!";
     }
-    previousAnswer.setAttribute("class", "border-top mt-3");
+    previousAnswer.setAttribute("class", "text-muted border-top mt-3");
     quizPane.appendChild(previousAnswer);
   }
 }
