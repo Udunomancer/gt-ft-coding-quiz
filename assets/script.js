@@ -61,7 +61,6 @@ function init() {
   //Create, add content, and add header to quiz-pane
   var heading = document.createElement("h1");
   heading.textContent = "Coding Quiz Challenge";
-  heading.setAttribute("class", "text-center");
   quizPane.appendChild(heading);
 
   //Create, add content, and add text to quiz-pane
@@ -73,7 +72,8 @@ function init() {
   //Create, add content, and add start button to quiz-pane
   var startButton = document.createElement("button");  
   startButton.textContent = "Start Quiz";
-  startButton.setAttribute("id", "start-btn");  
+  startButton.setAttribute("id", "start-btn");
+  startButton.setAttribute("class", "btn btn-primary");  
   quizPane.appendChild(startButton);
 }
 
