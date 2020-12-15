@@ -45,6 +45,7 @@ var questionPanel = [
 ];
 var questionNum = 0;
 var quizTime = 0;
+var scores = [];
 
 function init() {
   var heading = document.createElement("h1");
@@ -84,6 +85,12 @@ function btnClick() {
             break;
         case "initial-btn":
             submitHighScore();
+            break;
+        case "go-back-btn":
+            console.log("Go Back");
+            break;
+        case "clear-btn":
+            console.log("Clear Highscores");
             break;
     }
   }
@@ -195,7 +202,7 @@ function submitHighScore() {
 
     var goBackBtn = document.createElement("button");
     goBackBtn.textContent = "Go Back";
-    goBackBtn.setAttribute("id", "go-back-button");
+    goBackBtn.setAttribute("id", "go-back-btn");
     span.appendChild(goBackBtn);
 
     var clearBtn = document.createElement("button");
