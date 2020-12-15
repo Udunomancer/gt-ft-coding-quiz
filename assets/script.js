@@ -50,6 +50,8 @@ var questionPanel = [
 var questionNum = 0;
 // Variable to store quiz time
 var quizTime = 0;
+// Variable to store interval
+var gameTimer;
 // Variable to store scores
 var scores = [];
 
@@ -162,12 +164,12 @@ function startTimer() {
   //Input: none
   //Output: none
     quizTime = 10;
-    var gameTimer = setInterval(function() {
+    gameTimer = setInterval(function() {
         quizTime--;
         document.getElementById("timer").textContent = "Time Remaining: " + quizTime;
 
         if (quizTime === 0) {
-          endGame(gameTimer);
+          endGame();
         }
     }, 1000);
 }
@@ -182,7 +184,7 @@ function responseButton(selection) {
     if (questionNum < questionPanel.length) {
         populateQuestion(true);
     } else {
-        populateScoreScreen();
+        endGame();
     }
 }
 
@@ -197,11 +199,10 @@ function evaluateAnswer(selection) {
     }
 }
 
-function endGame(timer) {
-  clearInterval(timer);
+function endGame() {
+  clearInterval(gameTimer);
   clearQuizPane();
   populateScoreScreen();
-  console.log("Game Over");
 }
 
 function populateScoreScreen() {
@@ -209,33 +210,40 @@ function populateScoreScreen() {
   //Input: none
   //Output: none
   //window.location.href='http://www.google.com/
-    var heading = document.createElement("h2");
-    heading.textContent = "All done!";
-    quizPane.appendChild(heading);
-
-    var score = 0;
-    for (var i = 0; i < questionPanel.length; i++) {
-        if (questionPanel[i].answer) {
-            score++;
-        }
-    }
     
-    var showScore = document.createElement("p");
-    showScore.textContent = "Your final score is " + score + ".";
-    quizPane.appendChild(showScore);
+  //Create, add content, and add header to quiz-pane
+  var heading = document.createElement("h2");
+  heading.textContent = "All done!";
+  quizPane.appendChild(heading);
 
-    var initialsSpan = document.createElement("span");
-    initialsSpan.textContent = "Enter initials: ";
-    quizPane.appendChild(initialsSpan);
+  //Calculate correct/incorrect responses for display
+  var correctAnswers = 0;
+  var incorrectAnswers = 0;
+  for (var i = 0; i < questionPanel.length; i++) {
+      if (questionPanel[i].answer) {
+        correctAnswers++;
+      } else {
+        incorrectAnswers++;
+      }
+  }
+  
+  ////Create, add content, and add text content with score/responses to quiz-pane
+  var showScore = document.createElement("p");
+  showScore.textContent = "Your final score is " + quizTime + "!  You got " + correctAnswers + " right, and " + incorrectAnswers + " questions wrong.";
+  quizPane.appendChild(showScore);
 
-    var initialsInput = document.createElement("input");
-    initialsInput.setAttribute("type", "text");
-    initialsSpan.appendChild(initialsInput);
+  var initialsSpan = document.createElement("span");
+  initialsSpan.textContent = "Enter initials: ";
+  quizPane.appendChild(initialsSpan);
 
-    var initialsBtn = document.createElement("button");
-    initialsBtn.setAttribute("id", "initial-btn");
-    initialsBtn.textContent = "Submit";
-    initialsSpan.appendChild(initialsBtn);
+  var initialsInput = document.createElement("input");
+  initialsInput.setAttribute("type", "text");
+  initialsSpan.appendChild(initialsInput);
+
+  var initialsBtn = document.createElement("button");
+  initialsBtn.setAttribute("id", "initial-btn");
+  initialsBtn.textContent = "Submit";
+  initialsSpan.appendChild(initialsBtn);
 
 }
 
