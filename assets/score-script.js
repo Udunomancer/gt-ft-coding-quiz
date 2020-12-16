@@ -1,6 +1,10 @@
+  // ===DOM VARIABLES===
   var scorePane = document.getElementById("score-pane");
+
+  // ===JAVASCRIPT VARIABLES===
   var highScores = JSON.parse(localStorage.getItem("storedScoresLS"));
   
+  // ===FUNCTION DEFINITIONS===
   function init() {
     for (var i = 0; i < highScores.length; i++) {
         var scoreEl = document.createElement("p");
@@ -10,4 +14,7 @@
     }
   }
 
+  // ===FUNCTION CALLS===
   init();
+
+  // ===EVENT LISTENERS===
