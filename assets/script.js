@@ -48,7 +48,7 @@
     },
     {
       question:
-        "A very usefule tool used during development and debugging for printing content to the debugger is:",
+        "A very useful tool used during development and debugging for printing content to the debugger is:",
       responses: [
         { response: "JavaScript", status: false },
         { response: "terminal / bash", status: false },
@@ -142,6 +142,7 @@
     //Create, add content, and add header to quiz-pane
     var heading = document.createElement("h2");
     heading.textContent = questionPanel[questionNum].question;
+    heading.setAttribute("class", "w-50");
     quizPane.appendChild(heading);
 
     //For loop to create, add content, and add question response buttons to quiz-pane
