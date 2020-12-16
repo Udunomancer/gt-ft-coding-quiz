@@ -15,11 +15,17 @@
     }
   }
 
+  function clearHighScores() {
+      highScores = [];
+      localStorage.removeItem("storedScoresLS");
+      scorePane.textContent = "";
+  }
+
   // ===FUNCTION CALLS===
   init();
 
   // ===EVENT LISTENERS===
   clearBtn.addEventListener("click", function (event) {
     event.preventDefault();
-    console.log("Clear");
+    clearHighScores();
   });
