@@ -266,6 +266,7 @@
 
     var initialsInput = document.createElement("input");
     initialsInput.setAttribute("type", "text");
+    initialsInput.setAttribute("maxlength", "2");
     initialsInput.setAttribute("id", "initials");
     initialsInput.setAttribute("class", "mx-1 align-middle");
     initialsSpan.appendChild(initialsInput);
