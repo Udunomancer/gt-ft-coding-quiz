@@ -257,10 +257,12 @@
     var initialsInput = document.createElement("input");
     initialsInput.setAttribute("type", "text");
     initialsInput.setAttribute("id", "initials");
+    initialsInput.setAttribute("class", "mx-1 align-middle");
     initialsSpan.appendChild(initialsInput);
 
     var initialsBtn = document.createElement("button");
     initialsBtn.setAttribute("id", "initial-btn");
+    initialsBtn.setAttribute("class", "btn btn-primary btn-sm align-middle mx-1");
     initialsBtn.textContent = "Submit";
     initialsSpan.appendChild(initialsBtn);
   }
