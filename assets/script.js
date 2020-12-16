@@ -1,4 +1,3 @@
-$(document).ready(function () {
   // ===DOM VARIABLES===
   var quizPane = document.getElementById("quiz-pane");
 
@@ -296,4 +295,3 @@ $(document).ready(function () {
     event.preventDefault();
     btnClick(event);
   });
-});
