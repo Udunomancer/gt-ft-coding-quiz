@@ -170,7 +170,7 @@
     //Function to set the quiz timer and begin countdown
     //Input: none
     //Output: none
-    quizTime = 10;
+    quizTime = 80;
     document.getElementById("timer").textContent =
       "Time Remaining: " + quizTime;
 
