@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <!-- Nav Elements -->
     <nav class="navbar">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1"><a href="score.html">View Highscores</a></span>
-            <span class="navbar-text" id="timer">Time Remaining: 0</span>
-        </div>
-        
+      <div class="container-fluid">
+        <!-- Link to Highscores -->
+        <span class="navbar-brand mb-0 h1"
+          ><a href="score.html">View Highscores</a></span
+        >
+        <!-- Quiz Time Display -->
+        <span class="navbar-text" id="timer">Time Remaining: 0</span>
+      </div>
     </nav>
+
+    <!-- Body Content -->
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center" id="quiz-pane">
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <!-- Empty div to dynamically add content -->
+          <div class="col-12 text-center" id="quiz-pane"></div>
         </div>
+      </div>
     </body>
     <script type="text/javascript" src="assets/script.js"></script>
-</body>
+  </body>
 </html>
