@@ -48,3 +48,5 @@ Score page
 ## <a name="contributing"></a> Contributing to the Coding Quiz
 
 ## <a name="license"></a> License
+
+[License](assets/license.txt)
