@@ -1,5 +1,6 @@
   // ===DOM VARIABLES===
   var scorePane = document.getElementById("score-pane");
+  var clearBtn = document.getElementById("clear-btn");
 
   // ===JAVASCRIPT VARIABLES===
   var highScores = JSON.parse(localStorage.getItem("storedScoresLS"));
@@ -18,3 +19,7 @@
   init();
 
   // ===EVENT LISTENERS===
+  clearBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log("Clear");
+  });
