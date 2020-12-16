@@ -32,11 +32,11 @@ Index/Home page
 * The "View Highscores" link at the top left should take the user directly to the Score page
 * The "Start Quiz" button should begin the quiz
 * When the quiz starts the page contents should dynamically change
-1. Contents of the page should change to a question and responses
-2. Timer should begin decrementing and appear in the top right corner of the screen
+    * Contents of the page should change to a question and responses
+    * Timer should begin decrementing and appear in the top right corner of the screen
 * The quiz should end when the user answers all questions or runs out of time
 * When the quiz ends, the user should be presented with a score screen that will show their score and save their score to local storage along with their initials
-1. Submitting a score should take the user to the score page
+    * Submitting a score should take the user to the score page
 
 Score page
 * All scores stored in local storage should be dynamically displayed
