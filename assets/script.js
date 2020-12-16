@@ -170,7 +170,7 @@
     //Function to set the quiz timer and begin countdown
     //Input: none
     //Output: none
-    quizTime = 80;
+    quizTime = 10;
     document.getElementById("timer").textContent =
       "Time Remaining: " + quizTime;
 
@@ -190,12 +190,16 @@
     //Input: (string) ID of the selected answer
     //Output: none
     var accuracy = evaluateAnswer(selection);
-    questionNum++;
-    clearQuizPane();
-    if (questionNum < questionPanel.length) {
-      populateQuestion(accuracy);
-    } else {
+    if (quizTime <= 0) {
       endGame();
+    } else {
+      questionNum++;
+      clearQuizPane();
+      if (questionNum < questionPanel.length) {
+        populateQuestion(accuracy);
+      } else {
+        endGame();
+      }
     }
   }
 

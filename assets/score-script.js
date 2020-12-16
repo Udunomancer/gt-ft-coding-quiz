@@ -10,13 +10,15 @@ function init() {
   //Function to run on page load to display high scores
   //Input: none
   //Output: none
-  for (var i = 0; i < highScores.length; i++) {
-    var scoreEl = document.createElement("p");
-    scoreEl.textContent =
-      i + 1 + ". " + highScores[i].initials + " - " + highScores[i].score;
-    scoreEl.setAttribute("class", "text-white rounded w-25 p-1");
-    scoreEl.setAttribute("style", "background-color: #67ace7");
-    scorePane.appendChild(scoreEl);
+  if (highScores) {
+    for (var i = 0; i < highScores.length; i++) {
+        var scoreEl = document.createElement("p");
+        scoreEl.textContent =
+        i + 1 + ". " + highScores[i].initials + " - " + highScores[i].score;
+        scoreEl.setAttribute("class", "text-white rounded w-25 p-1");
+        scoreEl.setAttribute("style", "background-color: #67ace7");
+        scorePane.appendChild(scoreEl);
+    }
   }
 }
 
