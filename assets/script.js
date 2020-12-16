@@ -264,36 +264,14 @@ function submitHighScore() {
     storedScores = [submittedScore];
   } else {
     storedScores.push(submittedScore);
+    storedScores.sort(function (a, b) {
+      return b.score - a.score;
+    });
   }
   
   localStorage.setItem("storedScoresLS", JSON.stringify(storedScores));
 
   window.location.href="score.html";
-  
- 
-  // var score = {document.querySelector("#initials").value, }
-
-  
-  // clearQuizPane();
-
-    // var heading = document.createElement("h1");
-    // heading.textContent = "Highscores";
-    // quizPane.appendChild(heading);
-
-    // var span = document.createElement("span");
-    // quizPane.appendChild(span);
-
-    // var goBackBtn = document.createElement("button");
-    // goBackBtn.textContent = "Go Back";
-    // goBackBtn.setAttribute("id", "go-back-btn");
-    // span.appendChild(goBackBtn);
-
-    // var clearBtn = document.createElement("button");
-    // clearBtn.textContent = "Clear Highscores";
-    // clearBtn.setAttribute("id", "clear-btn");
-    // span.appendChild(clearBtn);
-
-    // console.log("Yayyy!");
 }
 
 init();
