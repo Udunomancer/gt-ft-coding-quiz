@@ -16,7 +16,7 @@ This repository hosts all files to run a coding quiz page.  It includes the HTML
 
 Site link: [https://udunomancer.github.io/gt-ft-coding-quiz/](https://udunomancer.github.io/gt-ft-coding-quiz/)
 
-Image here
+![Image](assets/images/page-screenshot.png)
 
 This Coding Quiz contains two pages:
 * The Index/Home page will allow a user to take a coding quiz and receive a score based on their correct answers and time of completion.
@@ -45,7 +45,21 @@ Score page
 
 ## <a name="development_roadmap"></a> Development Roadmap
 
+**Recent Developments**
+
+Initial Repository/Page Deployment (12/15/2020)
+* Added html for both pages
+* Entered working JavaScript to run coding quiz and score screen pages
+
+**Future Roadmap**
+* Add functionality to randomly order quiz questions or question responses
+* Add functionality for long-term storage
+* Add functionality to edit questions from page
+* Add functionality to see other users scores
+
 ## <a name="contributing"></a> Contributing to the Coding Quiz
+
+No direct contributions to repository accepted at this time.
 
 ## <a name="license"></a> License
 
