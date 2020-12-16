@@ -72,6 +72,9 @@
     //Input: None
     //Output: None
 
+    //Set alignment for quiz pane
+    quizPane.setAttribute("class", "col-12 text-center");
+
     //Create, add content, and add header to quiz-pane
     var heading = document.createElement("h1");
     heading.textContent = "Coding Quiz Challenge";
@@ -133,6 +136,9 @@
     //Input: (boolean) False if initiated from start button, True if initiated from a question response
     //Output: none
 
+    //Set alignment for quiz pane
+    quizPane.setAttribute("class", "col-12");
+
     //Create, add content, and add header to quiz-pane
     var heading = document.createElement("h2");
     heading.textContent = questionPanel[questionNum].question;
@@ -144,7 +150,7 @@
       responseBtn.textContent =
         i + 1 + ". " + questionPanel[questionNum].responses[i].response;
       responseBtn.setAttribute("id", i);
-      responseBtn.setAttribute("class", "btn btn-primary m-1");
+      responseBtn.setAttribute("class", "btn btn-primary m-1 w-25 text-left");
       quizPane.appendChild(responseBtn);
 
       //Break to put each response button on a separate line
@@ -155,7 +161,7 @@
     if (previousAns) {
       var previousAnswer = document.createElement("h4");
       previousAnswer.textContent = previousAns;
-      previousAnswer.setAttribute("class", "text-muted border-top mt-3");
+      previousAnswer.setAttribute("class", "text-muted border-top mt-3 w-25 text-center");
       quizPane.appendChild(previousAnswer);
     }
   }
