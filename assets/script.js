@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 // ===DOM VARIABLES===
 var quizPane = document.getElementById("quiz-pane");
 
@@ -105,13 +107,6 @@ function btnClick() {
         case "initial-btn":
             submitHighScore();
             break;
-        // case "go-back-btn":
-        //     clearQuizPane();
-        //     init();
-        //     break;
-        // case "clear-btn":
-        //     console.log("Clear Highscores");
-        //     break;
     }
   }
 }
@@ -279,4 +274,5 @@ init();
 quizPane.addEventListener("click", function (event) {
   event.preventDefault();
   btnClick(event);
+});
 });
